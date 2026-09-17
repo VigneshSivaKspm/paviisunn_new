@@ -1,0 +1,255 @@
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 100px;
+}
+
+/* ============ BG ============ */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1s ease, transform 8s ease;
+  z-index: 0;
+}
+
+.hero-bg--active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============ OVERLAY ============ */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(5, 5, 10, 0.85) 0%,
+    rgba(10, 10, 15, 0.65) 50%,
+    rgba(5, 5, 10, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+/* Additional bottom gradient */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--bg-primary), transparent);
+  z-index: 2;
+}
+
+/* ============ CONTENT ============ */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 2rem 0 4rem;
+}
+
+.hero-content--enter {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+.hero-content--exit {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+}
+
+/* ============ LOGO ============ */
+.hero-logo-wrap {
+  margin-bottom: 2rem;
+}
+
+.hero-logo {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(255, 107, 26, 0.4));
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ============ TITLE ============ */
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title-highlight {
+  background: var(--grad-solar);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* ============ SUBTITLE ============ */
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+/* ============ CTAs ============ */
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.hero-cta-primary {
+  padding: 16px 36px;
+  font-size: 1rem;
+}
+
+.hero-cta-secondary {
+  padding: 15px 36px;
+  font-size: 1rem;
+  color: white !important;
+  border-color: rgba(255,255,255,0.35) !important;
+}
+
+.hero-cta-secondary:hover {
+  border-color: var(--solar-orange) !important;
+  color: var(--solar-orange) !important;
+  background: rgba(255,107,26,0.1) !important;
+}
+
+/* ============ STATS ============ */
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-stat-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: var(--grad-solar);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ============ INDICATORS ============ */
+.hero-indicators {
+  position: absolute;
+  bottom: 5rem;
+  right: 3rem;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-indicator {
+  width: 4px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.hero-indicator--active {
+  height: 40px;
+  background: var(--solar-orange);
+  box-shadow: 0 0 10px rgba(255, 107, 26, 0.5);
+}
+
+/* ============ SCROLL BTN ============ */
+.hero-scroll-btn {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: float 2.5s ease-in-out infinite;
+  transition: var(--transition);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+}
+
+.hero-scroll-btn:hover {
+  border-color: var(--solar-orange);
+  color: var(--solar-orange);
+  background: rgba(255, 107, 26, 0.1);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .hero-logo {
+    height: 80px;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+
+  .hero-stat-value {
+    font-size: 1.4rem;
+  }
+
+  .hero-indicators {
+    right: 1rem;
+    bottom: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-ctas {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
