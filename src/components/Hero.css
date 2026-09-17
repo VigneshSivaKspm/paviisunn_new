@@ -1,15 +1,22 @@
-/* ============ HERO ============ */
+/* ============ HERO SECTION (FIT SINGLE FULL PAGE) ============ */
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 520px;
+  max-height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding-top: 100px;
+  padding-top: 65px;
+  padding-bottom: 2.5rem;
+  box-sizing: border-box;
 }
 
-/* ============ BG ============ */
+/* ============ BACKGROUND ============ */
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -32,64 +39,61 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(5, 5, 10, 0.85) 0%,
-    rgba(10, 10, 15, 0.65) 50%,
-    rgba(5, 5, 10, 0.75) 100%
+    rgba(255, 255, 255, 0.90) 0%,
+    rgba(248, 250, 252, 0.78) 50%,
+    rgba(255, 255, 255, 0.88) 100%
   );
   z-index: 1;
 }
 
-/* Additional bottom gradient */
+/* Bottom subtle blend transition */
 .hero::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 200px;
+  height: 80px;
   background: linear-gradient(to top, var(--bg-primary), transparent);
   z-index: 2;
+  pointer-events: none;
 }
 
-/* ============ CONTENT ============ */
+/* ============ CONTENT WRAPPER ============ */
 .hero-content {
   position: relative;
   z-index: 3;
   width: 100%;
-  padding: 2rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-content--enter {
-  animation: fadeInUp 0.7s ease forwards;
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 .hero-content--exit {
   opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.4s ease;
+  transform: translateY(-15px);
+  transition: all 0.35s ease;
 }
 
-/* ============ LOGO ============ */
-.hero-logo-wrap {
-  margin-bottom: 2rem;
-}
-
-.hero-logo {
-  height: 120px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 20px rgba(255, 107, 26, 0.4));
-  animation: float 4s ease-in-out infinite;
+/* ============ BADGE ============ */
+.hero .badge-solar {
+  margin-bottom: 0.85rem;
+  font-size: clamp(0.72rem, 1vw, 0.85rem);
+  padding: 6px 16px;
 }
 
 /* ============ TITLE ============ */
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
   font-weight: 900;
-  line-height: 1.05;
-  color: white;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.02em;
 }
 
 .hero-title-highlight {
@@ -102,11 +106,11 @@
 
 /* ============ SUBTITLE ============ */
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 600px;
-  margin-bottom: 2.5rem;
-  line-height: 1.7;
+  font-size: clamp(0.9rem, 1.35vw, 1.1rem);
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
 }
 
 /* ============ CTAs ============ */
@@ -114,43 +118,43 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
 }
 
 .hero-cta-primary {
-  padding: 16px 36px;
-  font-size: 1rem;
+  padding: 13px 30px !important;
+  font-size: 0.95rem !important;
 }
 
 .hero-cta-secondary {
-  padding: 15px 36px;
-  font-size: 1rem;
-  color: white !important;
-  border-color: rgba(255,255,255,0.35) !important;
+  padding: 12px 30px !important;
+  font-size: 0.95rem !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-orange) !important;
 }
 
 .hero-cta-secondary:hover {
   border-color: var(--solar-orange) !important;
   color: var(--solar-orange) !important;
-  background: rgba(255,107,26,0.1) !important;
+  background: rgba(255, 107, 26, 0.08) !important;
 }
 
 /* ============ STATS ============ */
 .hero-stats {
   display: flex;
-  gap: 2.5rem;
+  gap: 2.25rem;
   flex-wrap: wrap;
 }
 
 .hero-stat {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .hero-stat-value {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
   font-weight: 900;
   background: var(--grad-solar);
   -webkit-background-clip: text;
@@ -160,9 +164,9 @@
 }
 
 .hero-stat-label {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -170,18 +174,18 @@
 /* ============ INDICATORS ============ */
 .hero-indicators {
   position: absolute;
-  bottom: 5rem;
-  right: 3rem;
+  bottom: 2.5rem;
+  right: 2.5rem;
   z-index: 4;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .hero-indicator {
   width: 4px;
-  height: 24px;
-  background: rgba(255, 255, 255, 0.3);
+  height: 20px;
+  background: rgba(15, 23, 42, 0.2);
   border-radius: 2px;
   border: none;
   cursor: pointer;
@@ -189,31 +193,32 @@
 }
 
 .hero-indicator--active {
-  height: 40px;
+  height: 34px;
   background: var(--solar-orange);
-  box-shadow: 0 0 10px rgba(255, 107, 26, 0.5);
+  box-shadow: 0 0 8px rgba(255, 107, 26, 0.5);
 }
 
 /* ============ SCROLL BTN ============ */
 .hero-scroll-btn {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  border: 1.5px solid var(--border-subtle);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   animation: float 2.5s ease-in-out infinite;
   transition: var(--transition);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
+  box-shadow: var(--shadow-card);
 }
 
 .hero-scroll-btn:hover {
@@ -222,34 +227,76 @@
   background: rgba(255, 107, 26, 0.1);
 }
 
-/* ============ RESPONSIVE ============ */
+/* ============ RESPONSIVE BREAKPOINTS ============ */
+@media (max-height: 700px) {
+  .hero {
+    padding-top: 55px;
+    padding-bottom: 2rem;
+  }
+  .hero-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+  .hero-ctas {
+    margin-bottom: 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .hero-logo {
-    height: 80px;
+  .hero {
+    padding-top: 60px;
+    padding-bottom: 2rem;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .hero-title {
+    font-size: clamp(1.6rem, 6vw, 2.3rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
   }
 
   .hero-stats {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .hero-stat-value {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .hero-indicators {
     right: 1rem;
-    bottom: 4rem;
+    bottom: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-ctas {
-    flex-direction: column;
-    gap: 0.75rem;
+  .hero {
+    padding-top: 50px;
   }
+
+  .hero-ctas {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
   .hero-cta-primary,
   .hero-cta-secondary {
-    width: 100%;
-    justify-content: center;
+    padding: 10px 18px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 }

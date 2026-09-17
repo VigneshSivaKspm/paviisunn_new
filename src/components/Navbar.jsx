@@ -70,9 +70,7 @@ export default function Navbar() {
             className="navbar-logo"
             onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
           >
-            <div className="navbar-logo-icon">
-              <Sun size={22} />
-            </div>
+            <img src="/img/logo.png" alt="PaviiSunn Logo" className="navbar-logo-img" />
             <div className="navbar-logo-text">
               <span className="logo-pavii">Pavii</span>
               <span className="logo-sunn">Sunn</span>

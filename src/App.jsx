@@ -12,6 +12,7 @@ import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SuryaGharModal from './components/SuryaGharModal';
+import WhatsAppButton from './components/WhatsAppButton';
 import './App.css';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
 
       <Footer />
 
+      <WhatsAppButton />
       <SuryaGharModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );

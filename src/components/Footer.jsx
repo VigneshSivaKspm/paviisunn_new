@@ -43,13 +43,7 @@ export default function Footer() {
             {/* Brand */}
             <div className="footer-brand">
               <div className="footer-logo">
-                <div className="footer-logo-icon">
-                  <Sun size={24} />
-                </div>
-                <div className="footer-logo-text">
-                  <span className="logo-pavii">Pavii</span>
-                  <span className="logo-sunn">Sunn</span>
-                </div>
+                <img src="/img/logo.png" alt="PaviiSunn Logo" className="footer-logo-img" />
               </div>
               <p className="footer-brand-desc">
                 Pavii Sunn provides complete solutions for rooftop solar power projects on an EPC or

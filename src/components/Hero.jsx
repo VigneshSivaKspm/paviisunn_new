@@ -64,11 +64,6 @@ export default function Hero() {
       {/* Content */}
       <div className={`hero-content ${animating ? 'hero-content--exit' : 'hero-content--enter'}`}>
         <div className="container">
-          {/* Logo */}
-          <div className="hero-logo-wrap">
-            <img src="/img/logo.png" alt="Pavii Sunn Logo" className="hero-logo" />
-          </div>
-
           <div className="badge-solar mb-3">
             {slide.badge}
           </div>

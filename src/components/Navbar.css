@@ -43,7 +43,7 @@
   left: 0;
   right: 0;
   z-index: 999;
-  background: rgba(10, 10, 15, 0.7);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-subtle);
@@ -51,9 +51,9 @@
 }
 
 .navbar--scrolled {
-  background: rgba(10, 10, 15, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   border-bottom-color: var(--border-orange);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
 }
 
 .navbar-inner {
@@ -76,23 +76,21 @@
   flex-shrink: 0;
 }
 
-.navbar-logo-icon {
-  width: 40px;
+.navbar-logo-img {
   height: 40px;
-  background: var(--grad-solar);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  box-shadow: 0 4px 15px rgba(255, 107, 26, 0.4);
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition);
 }
 
 .navbar-logo-text {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 800;
   line-height: 1;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
 }
 
 .logo-pavii {
@@ -104,6 +102,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-left: 1px;
 }
 
 /* ============ NAV LINKS ============ */
