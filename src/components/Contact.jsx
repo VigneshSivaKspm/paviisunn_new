@@ -1,23 +1,80 @@
 import { useState } from 'react';
-import { Send, User, Mail, MessageSquare, Phone, CheckCircle } from 'lucide-react';
+import { Send, User, Mail, MessageSquare, Phone, CheckCircle, AlertCircle, ExternalLink } from 'lucide-react';
 import './Contact.css';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+  const [refId, setRefId] = useState('');
+  const [previewUrl, setPreviewUrl] = useState('');
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if (errorMsg) setErrorMsg('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMsg('');
+
+    // Client side validation
+    if (!form.name.trim()) {
+      setErrorMsg('Please enter your full name.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!form.email.trim() || !emailRegex.test(form.email.trim())) {
+      setErrorMsg('Please enter a valid email address.');
+      return;
+    }
+
+    if (!form.subject.trim()) {
+      setErrorMsg('Please enter a subject for your enquiry.');
+      return;
+    }
+
+    if (!form.message.trim() || form.message.trim().length < 10) {
+      setErrorMsg('Please enter a detailed message (at least 10 characters).');
+      return;
+    }
+
     setLoading(true);
-    // Simulate submission
-    await new Promise((res) => setTimeout(res, 1500));
-    setLoading(false);
-    setSubmitted(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to send message via Nodemailer.');
+      }
+
+      setRefId(data.refId || '');
+      setPreviewUrl(data.previewUrl || '');
+      setSubmitted(true);
+    } catch (err) {
+      console.error('[Nodemailer Submission Error]:', err);
+      setErrorMsg(err.message || 'Connection error. Please ensure the server is running or call us directly.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleReset = () => {
+    setSubmitted(false);
+    setRefId('');
+    setPreviewUrl('');
+    setErrorMsg('');
+    setForm({ name: '', email: '', phone: '', subject: '', message: '' });
   };
 
   return (
@@ -90,15 +147,33 @@ export default function Contact() {
             {submitted ? (
               <div className="contact-success">
                 <CheckCircle size={52} className="contact-success-icon" />
-                <h3>Message Sent!</h3>
-                <p>Thank you for reaching out. Our team will contact you within 24 hours.</p>
-                <button className="btn-primary" onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', subject: '', message: '' }); }}>
+                <h3>Message Sent via Nodemailer!</h3>
+                {refId && <div className="contact-ref-badge">Ref #: {refId}</div>}
+                <p>Thank you for reaching out. Our team has received your email and will contact you within 24 hours.</p>
+
+                {previewUrl && (
+                  <div className="contact-preview-box">
+                    <strong>Developer Mode (Ethereal Email Preview):</strong><br />
+                    <a href={previewUrl} target="_blank" rel="noopener noreferrer">
+                      View Sent Test Email <ExternalLink size={14} style={{ display: 'inline', verticalAlign: 'middle' }} />
+                    </a>
+                  </div>
+                )}
+
+                <button className="btn-primary mt-3" onClick={handleReset}>
                   Send Another Message
                 </button>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit} id="contactForm" noValidate>
                 <h3 className="contact-form-title">Send Us A Message</h3>
+
+                {errorMsg && (
+                  <div className="contact-alert-error" role="alert">
+                    <AlertCircle size={18} flexShrink={0} />
+                    <span>{errorMsg}</span>
+                  </div>
+                )}
 
                 <div className="form-row">
                   <div className="form-group">
