@@ -84,7 +84,7 @@ export default function Footer() {
                 <h5 className="footer-office-name">Coimbatore</h5>
                 <div className="footer-contact-item">
                   <Phone size={14} />
-                  <a href="tel:+919944173412">+91 99441 73412</a>
+                  <a href="tel:+919489757630">+91 94897 57630</a>
                 </div>
                 <div className="footer-contact-item">
                   <MapPin size={14} />
@@ -96,11 +96,7 @@ export default function Footer() {
                 <h5 className="footer-office-name">Sathyamangalam</h5>
                 <div className="footer-contact-item">
                   <Phone size={14} />
-                  <a href="tel:+919894693682">+91 98946 93682</a>
-                </div>
-                <div className="footer-contact-item">
-                  <Phone size={14} />
-                  <a href="tel:+919600676277">+91 96006 76277</a>
+                  <a href="tel:+919489757630">+91 94897 57630</a>
                 </div>
               </div>
 

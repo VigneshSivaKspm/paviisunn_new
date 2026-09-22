@@ -50,9 +50,9 @@ export default function Navbar() {
       {/* Top Bar */}
       <div className="topbar">
         <div className="topbar-inner">
-          <a href="tel:+919894693682" className="topbar-link">
+          <a href="tel:+919489757630" className="topbar-link">
             <Phone size={14} />
-            <span>+91 98946 93682</span>
+            <span>+91 94897 57630</span>
           </a>
           <a href="mailto:info@paviisunn.in" className="topbar-link">
             <Mail size={14} />
@@ -124,8 +124,8 @@ export default function Navbar() {
             </a>
           ))}
           <div className="mobile-contact">
-            <a href="tel:+919894693682" className="topbar-link">
-              <Phone size={14} />+91 98946 93682
+            <a href="tel:+919489757630" className="topbar-link">
+              <Phone size={14} />+91 94897 57630
             </a>
             <a href="mailto:info@paviisunn.in" className="topbar-link">
               <Mail size={14} />info@paviisunn.in

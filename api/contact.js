@@ -66,7 +66,7 @@ export default async function handler(req, res) {
     console.error('[Vercel API /api/contact Error]:', err);
     return res.status(500).json({
       success: false,
-      error: 'Failed to send email via Nodemailer: ' + (err.message || 'Server Error'),
+      error: 'Failed to send email: ' + (err.message || 'Server Error'),
     });
   }
 }

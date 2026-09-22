@@ -87,7 +87,7 @@ app.post('/api/contact', async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: 'Thank you! Your message has been transmitted via Nodemailer. Our team will contact you shortly.',
+      message: 'Thank you! Your message has been sent successfully. Our team will contact you shortly.',
       refId: mailResult.refId,
       previewUrl: mailResult.previewUrl || undefined,
     });
@@ -96,7 +96,7 @@ app.post('/api/contact', async (req, res) => {
     console.error('[API Server Error /api/contact]:', err);
     return res.status(500).json({
       success: false,
-      error: 'Failed to send message via Nodemailer. ' + (err.message || 'Server error'),
+      error: 'Failed to send message. ' + (err.message || 'Server error'),
     });
   }
 });

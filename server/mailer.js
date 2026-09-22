@@ -181,8 +181,7 @@ export function buildUserConfirmationHtml({ name, refId, subject }) {
       <p>If you need urgent assistance regarding <strong>PM - Surya Ghar Muft Bijli Yojana</strong> or solar installation consultation, please feel free to call our offices directly:</p>
 
       <div class="contact-card">
-        <strong style="color: #0F172A;">Coimbatore Office:</strong> +91 99441 73412<br />
-        <strong style="color: #0F172A;">Sathyamangalam Office:</strong> +91 98946 93682 / +91 96006 76277<br />
+        <strong style="color: #0F172A;">Phone:</strong> +91 94897 57630<br />
         <strong style="color: #0F172A;">Email:</strong> info@paviisunn.in
       </div>
     </div>

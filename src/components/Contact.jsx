@@ -101,8 +101,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="contact-card-title">Sathyamangalam Office</h4>
-                <a href="tel:+919894693682" className="contact-card-value">+91 98946 93682</a>
-                <a href="tel:+919600676277" className="contact-card-value">+91 96006 76277</a>
+                <a href="tel:+919489757630" className="contact-card-value">+91 94897 57630</a>
               </div>
             </div>
 
@@ -112,7 +111,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="contact-card-title">Coimbatore Office</h4>
-                <a href="tel:+919944173412" className="contact-card-value">+91 99441 73412</a>
+                <a href="tel:+919489757630" className="contact-card-value">+91 94897 57630</a>
                 <p className="contact-card-sub">No.108/1, Athipalayam Road,<br />Chinnavedampatti, Coimbatore</p>
               </div>
             </div>
@@ -147,7 +146,7 @@ export default function Contact() {
             {submitted ? (
               <div className="contact-success">
                 <CheckCircle size={52} className="contact-success-icon" />
-                <h3>Message Sent via Nodemailer!</h3>
+                <h3>Message Sent!</h3>
                 {refId && <div className="contact-ref-badge">Ref #: {refId}</div>}
                 <p>Thank you for reaching out. Our team has received your email and will contact you within 24 hours.</p>
 

@@ -1,7 +1,7 @@
 import './WhatsAppButton.css';
 
 export default function WhatsAppButton() {
-  const phoneNumber = '919894693682';
+  const phoneNumber = '919489757630';
   const message = encodeURIComponent('Hello Pavii Sunn Solar, I would like to get a free quote and details about solar power installation.');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
