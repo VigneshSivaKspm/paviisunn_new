@@ -1,0 +1,13 @@
+/* App-level overrides */
+#root {
+  min-height: 100vh;
+}
+
+main {
+  padding-top: 100px; /* topbar + navbar height */
+}
+
+/* Scroll offset for all sections */
+section[id] {
+  scroll-margin-top: 100px;
+}
